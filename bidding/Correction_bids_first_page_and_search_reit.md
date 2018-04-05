@@ -3,25 +3,21 @@
 ```js
 function main(){ 
   
-  var maxBidCpcForFirstPage = 1; // Максимальная ставка 
+  var maxBidCpcForFirstPage = 1; // Максимальная ставка
   var searshReiting = 80; // Проценты. От 0 до 100
-  var labelName = "testLabel"; // Ввести имя ярлыка, которым помечены ключевые слова  
-  
+  var labelName = "testLabel"; // Ввести имя ярлыка, которым помечены ключевые слова
   var labels = [];
   var kw_it = AdWordsApp.labels().withCondition("Name = '"+ labelName +"'").get();
   while(kw_it.hasNext()){
     var kw = kw_it.next();
     labels.push(kw.getId());
-  }
-  
+  }  
   if(labels.length == 0){
     Logger.log("А аккаунте нет ярлыка - " + labelName);
-  }
-  
+  }  
   var query = "SELECT Id,AdGroupId, FirstPageCpc,CpcBid,SearchImpressionShare "+ 
   "FROM KEYWORDS_PERFORMANCE_REPORT " +
   "WHERE LabelIds CONTAINS_ANY [" + labels.join(',')+"] DURING TODAY"; // Данные за текущий день
-  																																											
 
   var report = AdWordsApp.report(query);
   var rows = report.rows();
