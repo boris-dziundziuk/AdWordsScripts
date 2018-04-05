@@ -5,8 +5,10 @@ var campaign_contains = "магазин";
 
 function main(){
   Logger.log(new Date());
-  var table_one_or_more_than_one = SpreadsheetApp.openById("1mW6wCSSwxbIifgPGTmmG6j3ZRcLW4EgW_NiLM-GepTE"); //ID таблицы Conversions>=1
-  var table_less_than_one = SpreadsheetApp.openById("1WxPELhwyiQj7L4WdeSxq3VynrpH0eaBRb-z3pymyDQc"); //ID таблицы Conversions<1
+  var table_one_or_more_than_one = SpreadsheetApp
+                     .openById("1mW6wCSSwxbIifgPGTmmG6j3ZRcLW4EgW_NiLM-GepTE"); //ID таблицы Conversions>=1
+  var table_less_than_one = SpreadsheetApp
+                     .openById("1WxPELhwyiQj7L4WdeSxq3VynrpH0eaBRb-z3pymyDQc"); //ID таблицы Conversions<1
   
   var table_1 = convert_table(table_one_or_more_than_one,value_for_cpa);
   var table_2 = convert_table(table_less_than_one,value_for_cost);
@@ -18,7 +20,8 @@ function main(){
   var timeZone = AdWordsApp.currentAccount().getTimeZone();
   
   var query = 'SELECT CampaignName,AdGroupId,Id,Cost,CostPerConversion, Conversions ' +
-    'FROM KEYWORDS_PERFORMANCE_REPORT WHERE CampaignName CONTAINS "'+campaign_contains+'" AND Impressions>0 AND Status = "ENABLED" ' +
+    'FROM KEYWORDS_PERFORMANCE_REPORT WHERE CampaignName CONTAINS "'+campaign_contains+'" '+
+    'AND Impressions>0 AND Status = "ENABLED" ' +
     'DURING ' + Utilities.formatDate(from, timeZone, 'yyyyMMdd') + ','
               + Utilities.formatDate(to, timeZone, 'yyyyMMdd');
   
