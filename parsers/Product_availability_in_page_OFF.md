@@ -10,14 +10,18 @@ https://github.com/promodo2018/AdWordsScripts/blob/master/TUTORIALS/Selectors.md
 
 
 ```js
-var BEGGIN = "<div class=\"prd-your-price-numb\">";
-var END = "<span";
+var BEGGIN = "<div class=\"prd-your-price-numb\">"; //Начальный элемент, от которого начнется парсинг.
+                                                    // Некоторые знаки необходимо экранировать, например
+                                                    // из " получаем \". Из  \  - \\; 
+var END = "<span"; //Начальный элемент, от которого начнется парсинг
 
 function main(){
-  var campaign_it = AdWordsApp.campaigns().withCondition("Status = 'ENABLED'").withCondition("Status != 'REMOVED'").get();
+  
+  var campaign_it = AdWordsApp.campaigns().withCondition("Status = 'ENABLED'")
+                              .withCondition("Status != 'REMOVED'").get(); //Селектор кампании
   while(campaign_it.hasNext()){
     var campaign = campaign_it.next();
-    var adGroup_it = campaign.adGroups().get();
+    var adGroup_it = campaign.adGroups().withCondition("Status = 'DISABLED'").get(); /Селектор группы
     while(adGroup_it.hasNext()){
       var adGroup = adGroup_it.next();
       try{
