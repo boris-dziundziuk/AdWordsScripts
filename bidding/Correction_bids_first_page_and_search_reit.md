@@ -18,7 +18,8 @@ function main(){
     Logger.log("А аккаунте нет ярлыка - " + labelName);
   }
   
-  var query = "SELECT Id,AdGroupId, FirstPageCpc,CpcBid,SearchImpressionShare FROM KEYWORDS_PERFORMANCE_REPORT " +
+  var query = "SELECT Id,AdGroupId, FirstPageCpc,CpcBid,SearchImpressionShare "+ 
+  "FROM KEYWORDS_PERFORMANCE_REPORT " +
   "WHERE LabelIds CONTAINS_ANY [" + labels.join(',')+"] DURING TODAY"; // Данные за текущий день
   																																											
 
@@ -39,12 +40,13 @@ function main(){
       var CPC = parseFloat(row['CpcBid']);
       obj.id = parseFloat(row["Id"]);
       if(CPC < maxBidCpcForFirstPage && CPC <= FPC){ 
-      // Если ставка ключевого слова меньше максимальной и меньше 
-      //либо равна ставке для первой страницы, ставка повышается на 0.01
+        // Если ставка ключевого слова меньше максимальной и меньше либо
+        //равна ставке для первой страницы, ставка повышается на 0.01
         obj.cpc = FPC + 0.01;
       }
       if(CPC >= maxBidCpcForFirstPage){  
-      // Если ставка больше либо равна максимальному установленному значению, ставка приравнивается к максимальному значению
+        // Если ставка больше либо равна максимальному установленному значению, 
+        //ставка приравнивается к максимальному значению
         obj.cpc = maxBidCpcForFirstPage;
       }      
       keywords.push(obj);
