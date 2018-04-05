@@ -1,6 +1,6 @@
 # AdWordsScripts
-  <text font-size="16" x="10" y="20" color="red">
-    <tspan fill="red">Hello</tspan>,
+  <text font-size="16" x="10" y="20">
+    <tspan color="red">Hello</tspan>,
     <tspan fill="green">world</tspan>!
   </text>
 
