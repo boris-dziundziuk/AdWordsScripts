@@ -20,15 +20,15 @@ function main() {
     try{
       var url = values[index][1];
       var html_page = UrlFetchApp.fetch(url,params).getContentText();
-      var cheking = html_page.match(/<div class="campaign small finished">/g || []);//Вставить элемент межу /элемент/
-                                                                                    //для определения активных акций
+      var cheking = html_page.match(/<div class="campaign small finished">/g || []);
+      //Вставить элемент межу /элемент/ для определения активных акций
       if(cheking == null){
         adGroupIdsEnabled.push(parseFloat(values[index][0]));
       }else{
         adGroupIdsPaused.push(values[index][0]);
       }
     }catch(err){
-Logger.log(err + " - " + values[index][0] + " " +values[index][1]+ " " +values[index][2]+ " " + values[index][3]);
+Logger.log(err + " - " +values[index][0]+" "+values[index][1]+" "+values[index][2]+" "+values[index][3]);
     }
   }
   var adGroupEnabled_it = AdWordsApp.adGroups().withIds(adGroupIdsEnabled).get();
