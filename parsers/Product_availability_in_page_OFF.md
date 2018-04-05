@@ -13,7 +13,8 @@ https://github.com/promodo2018/AdWordsScripts/blob/master/TUTORIALS/Selectors.md
 var BEGGIN = "<div class=\"prd-your-price-numb\">"; //Начальный элемент, от которого начнется парсинг.
                                                     // Некоторые знаки необходимо экранировать, например
                                                     // из " получаем \". Из  \  - \\; 
-var END = "<span"; //Начальный элемент, от которого начнется парсинг
+                                                    
+var END = "<span";                                  //Начальный элемент, от которого начнется парсинг
 
 function main(){
   
