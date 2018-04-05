@@ -1,3 +1,13 @@
+# Скрипт для назначения ярлыков position на ключевые слова
+
+Работа данного скрипта основана на двух таблицах:
+https://docs.google.com/spreadsheets/d/1mW6wCSSwxbIifgPGTmmG6j3ZRcLW4EgW_NiLM-GepTE/edit#gid=0
+https://docs.google.com/spreadsheets/d/1WxPELhwyiQj7L4WdeSxq3VynrpH0eaBRb-z3pymyDQc/edit#gid=0
+
+Происходит выборка ключевых слов, у которых были показы на протяжении последних 7 дней.
+Данные слова деляться на две части. Первая часть - Conversions<1 и вторая часть Conversions>=1;
+
+
 ```js
 var value_for_cpa = 30;
 var value_for_cost = 40;
