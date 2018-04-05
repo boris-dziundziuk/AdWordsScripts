@@ -1,8 +1,4 @@
 # AdWordsScripts
-  <text font-size="35" x="10" y="20">
-    <tspan color="red">Hello</tspan>,
-    <tspan fill="green">world</tspan>!
-  </text>
 
 &#x1F538;**ПЕРЕД ИСПОЛЬЗОВАНИЕМ СКРИПТА ОБЯЗАТЕЛЬНО ТЕСТИРОВАТЬ В РЕЖИМЕ ПРОСМОТРА**&#x1F538;
 
