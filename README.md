@@ -1,9 +1,8 @@
 # AdWordsScripts
-  <text font-size="16" x="10" y="20" font-colot="red">
+  <text font-size="16" x="10" y="20" color="red">
     <tspan fill="red">Hello</tspan>,
     <tspan fill="green">world</tspan>!
   </text>
-</svg>
 
 &#x1F538;**ПЕРЕД ИСПОЛЬЗОВАНИЕМ СКРИПТА ОБЯЗАТЕЛЬНО ТЕСТИРОВАТЬ В РЕЖИМЕ ПРОСМОТРА**&#x1F538;
 
