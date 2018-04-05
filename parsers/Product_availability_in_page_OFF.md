@@ -22,7 +22,7 @@ function main(){
                               .withCondition("Status != 'REMOVED'").get(); //Селектор кампании
   while(campaign_it.hasNext()){
     var campaign = campaign_it.next();
-    var adGroup_it = campaign.adGroups().withCondition("Status = 'DISABLED'").get(); /Селектор группы
+    var adGroup_it = campaign.adGroups().withCondition("Status = 'DISABLED'").get(); //Селектор группы
     while(adGroup_it.hasNext()){
       var adGroup = adGroup_it.next();
       try{
