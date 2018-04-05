@@ -5,12 +5,17 @@ https://docs.google.com/spreadsheets/d/1mW6wCSSwxbIifgPGTmmG6j3ZRcLW4EgW_NiLM-Ge
 https://docs.google.com/spreadsheets/d/1WxPELhwyiQj7L4WdeSxq3VynrpH0eaBRb-z3pymyDQc/edit#gid=0
 
 Происходит выборка ключевых слов, у которых были показы на протяжении последних 7 дней.
-Данные слова деляться на две части. Первая часть - Conversions<1 и вторая часть Conversions>=1;
+Данные слова деляться на две части. Первая часть - Conversions>=1 и вторая часть Conversions<1;
 
+Далее на основе таблицы вычисляется значение ярлыка. Для первой части вычисления происходят по
+стоимости конверсии. Для второй части по затраченной сумме за выделеный период.
+
+Для корректной работы скрипта, необходимо внести множители для первой и второй таблицы, а так же 
+часть названия кампаний.
 
 ```js
-var value_for_cpa = 30;
-var value_for_cost = 40;
+var value_for_cpa = 30;   //Множитель для первой таблицы, где Conversions>=1
+var value_for_cost = 40;  //Множитель для второй таблицы, где Conversions<1
 var campaign_contains = "магазин";
 
 function main(){
@@ -61,12 +66,7 @@ function main(){
       //Logger.log("Cost: " + kw_cost +"\t" + "Position: " + position(kw_cost, table_2));
     }
   }
-    
-    
-  Logger.log(new Date());
- 
-  
-  
+   
   var s_array = separate_array(arr_kw_ids);
   
   for(var x = 0; x < s_array.length; x++){
