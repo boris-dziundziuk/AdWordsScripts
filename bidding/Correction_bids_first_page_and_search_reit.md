@@ -6,6 +6,7 @@ function main(){
   var maxBidCpcForFirstPage = 1; // Максимальная ставка
   var searshReiting = 80; // Проценты. От 0 до 100
   var labelName = "testLabel"; // Ввести имя ярлыка, которым помечены ключевые слова
+  
   var labels = [];
   var kw_it = AdWordsApp.labels().withCondition("Name = '"+ labelName +"'").get();
   while(kw_it.hasNext()){
