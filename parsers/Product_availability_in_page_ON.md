@@ -5,6 +5,8 @@
 
 Настройка селекторов для выбора кампаний, групп, объявлений: https://github.com/promodo2018/AdWordsScripts/blob/master/TUTORIALS/Selectors.md
 
+
+```js
 var BEGGIN = "<div class=\"prd-your-price-numb\">"; //Начальный элемент, от которого начнется парсинг.
                                                     // Некоторые знаки необходимо экранировать, например
                                                     // из " получаем \". Из  \  - \\; 
